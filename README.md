@@ -35,7 +35,7 @@ A comprehensive collection of specialized AI subagents for [Claude Code](https:/
 
 ## Overview
 
-This repository contains 58 specialized subagents that extend Claude Code's capabilities. Each subagent is an expert in a specific domain, automatically invoked based on context or explicitly called when needed. All agents are configured with specific Claude models based on task complexity for optimal performance and cost-effectiveness.
+This repository contains 61 specialized subagents that extend Claude Code's capabilities. Each subagent is an expert in a specific domain, automatically invoked based on context or explicitly called when needed. All agents are configured with specific Claude models based on task complexity for optimal performance and cost-effectiveness.
 
 ## Available Subagents
 
@@ -78,8 +78,12 @@ This repository contains 58 specialized subagents that extend Claude Code's capa
 
 ### Quality & Security
 - **[code-reviewer](code-reviewer.md)** - Expert code review with deep configuration security focus and production reliability
+- **[bad-code-detector](bad-code-detector.md)** - Senior reviewer that catches workarounds, fake tests, security issues, and implementation failures
+- **[dead-code-cleaner](dead-code-cleaner.md)** - Safely removes dead code without breaking anything
+- **[git-committer](git-committer.md)** - Ensures all quality checks pass before committing and pushing changes
 - **[security-auditor](security-auditor.md)** - Review code for vulnerabilities and ensure OWASP compliance
 - **[test-automator](test-automator.md)** - Create comprehensive test suites with unit, integration, and e2e tests
+- **[playwright-selector](playwright-selector.md)** - Expert in finding element selectors using Playwright browser MCP
 - **[performance-engineer](performance-engineer.md)** - Profile applications, optimize bottlenecks, and implement caching strategies
 - **[debugger](debugger.md)** - Debugging specialist for errors, test failures, and unexpected behavior
 - **[error-detective](error-detective.md)** - Search logs and codebases for error patterns, stack traces, and anomalies
@@ -100,6 +104,7 @@ This repository contains 58 specialized subagents that extend Claude Code's capa
 - **[risk-manager](risk-manager.md)** - Monitor portfolio risk, R-multiples, and position limits
 - **[legacy-modernizer](legacy-modernizer.md)** - Refactor legacy codebases and implement gradual modernization
 - **[context-manager](context-manager.md)** - Manages context across multiple agents and long-running tasks
+- **[understander](understander.md)** - Clarifies user intentions through targeted questions when requests are unclear
 
 ### Documentation
 - **[docs-architect](docs-architect.md)** - Creates comprehensive technical documentation from existing codebases
@@ -116,9 +121,9 @@ This repository contains 58 specialized subagents that extend Claude Code's capa
 
 ## Model Assignments
 
-All 58 subagents are configured with specific Claude models based on task complexity:
+All 61 subagents are configured with specific Claude models based on task complexity:
 
-### 🚀 Haiku (Fast & Cost-Effective) - 9 agents
+### 🚀 Haiku (Fast & Cost-Effective) - 10 agents
 **Model:** `haiku`
 - `data-scientist` - SQL queries and data analysis
 - `api-documenter` - OpenAPI/Swagger documentation
@@ -129,8 +134,9 @@ All 58 subagents are configured with specific Claude models based on task comple
 - `sales-automator` - Cold emails and proposals
 - `search-specialist` - Web research and information gathering
 - `legal-advisor` - Privacy policies and compliance documents
+- `understander` - Clarification questions for unclear requests
 
-### ⚡ Sonnet (Balanced Performance) - 36 agents
+### ⚡ Sonnet (Balanced Performance) - 37 agents
 **Model:** `sonnet`
 
 **Development & Languages:**
@@ -168,7 +174,10 @@ All 58 subagents are configured with specific Claude models based on task comple
 
 **Quality & Support:**
 - `test-automator` - Test suite creation
+- `playwright-selector` - Element selector identification for testing
 - `code-reviewer` - Code quality analysis
+- `dead-code-cleaner` - Safe dead code removal
+- `git-committer` - Quality-assured commits with comprehensive checks
 - `debugger` - Error investigation
 - `error-detective` - Log analysis
 - `ml-engineer` - ML model deployment
@@ -176,9 +185,10 @@ All 58 subagents are configured with specific Claude models based on task comple
 - `payment-integration` - Payment processing
 - `mermaid-expert` - Mermaid diagrams and visual documentation
 
-### 🧠 Opus (Maximum Capability) - 13 agents
+### 🧠 Opus (Maximum Capability) - 14 agents
 **Model:** `opus`
 - `ai-engineer` - LLM applications and RAG systems
+- `bad-code-detector` - Senior review for workarounds, fake tests, and implementation failures
 - `security-auditor` - Vulnerability analysis
 - `performance-engineer` - Application optimization
 - `incident-responder` - Production incident handling
@@ -221,6 +231,12 @@ Mention the subagent by name in your request:
 # Code quality and review
 "Use code-reviewer to analyze this component for best practices"
 "Have code-reviewer scrutinize these configuration changes"
+"Use bad-code-detector to find workarounds and implementation failures"
+"Have bad-code-detector verify tests are actually testing something"
+"Use dead-code-cleaner to safely remove unused imports and functions"
+"Have dead-code-cleaner clean up after refactoring"
+"Use git-committer to ensure all tests pass before committing"
+"Have git-committer run comprehensive checks and push changes"
 "Have security-auditor check for OWASP compliance issues"
 
 # Development tasks  
@@ -231,6 +247,10 @@ Mention the subagent by name in your request:
 "Have devops-troubleshooter analyze these production logs"
 "Use cloud-architect to design a scalable AWS architecture"
 "Get network-engineer to debug SSL certificate issues"
+
+# Clarification and understanding
+"Use understander to clarify what the user really wants"
+"Have understander figure out the actual requirements"
 "Use database-admin to set up backup and replication"
 
 # Data and AI
@@ -403,7 +423,11 @@ payment-integration → security-auditor → Validated implementation
 
 ### 🧪 Quality Assurance
 - **code-reviewer**: Code quality, configuration security, production reliability
+- **bad-code-detector**: Workarounds, fake tests, security issues, implementation failures
+- **dead-code-cleaner**: Safe removal of unused code, imports, and unreachable code
+- **git-committer**: Pre-commit validation, test execution, quality-assured commits
 - **test-automator**: Test strategy, test suite creation
+- **playwright-selector**: Robust element selectors for E2E testing
 - **debugger**: Bug investigation, error resolution
 - **error-detective**: Log analysis, error pattern recognition, root cause analysis
 - **search-specialist**: Deep web research, competitive analysis, fact-checking
